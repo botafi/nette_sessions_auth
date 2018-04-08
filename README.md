@@ -1,0 +1,1 @@
+nette_session_auth
