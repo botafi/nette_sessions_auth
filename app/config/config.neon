@@ -14,3 +14,16 @@ session:
 services:
 	router: App\RouterFactory::createRouter
 	authenticator: App\UserAuthenticator
+	acl:
+		factory: Nette\Security\Permission
+		setup:
+			- addRole(guest)
+			- addRole(authenticated, guest)
+			- addRole(admin, authenticated)
+
+			- addResource(backend)
+
+			- allow(admin, backend)
+			- deny(guest, backend)
+			- deny(authenticated, backend)
+

@@ -26,4 +26,9 @@ class LoginPresenter extends UI\Presenter
             $this->flashMessage($e->getMessage());
         }
     }
+
+    public function actionLogout() {
+        $this->getUser()->logout();
+        $this->redirect('Homepage:');
+    }
 }
